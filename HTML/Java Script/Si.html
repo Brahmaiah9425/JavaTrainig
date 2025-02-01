@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Function</title>
+</head>
+<body>
+    <h1>Simple Interest Calculator</h1>
+    Enter the following details:
+    <br>
+    <input type="text" id="principal" placeholder="Principal Amount">
+    <input type="text" id="rate" placeholder="Rate of Interest">
+    <input type="text" id="time" placeholder="Time (in years)">
+    <br><br>
+    <button onclick="calculateSI()">Calculate Simple Interest</button>
+    <p id="interest"></p>
+
+    <script>
+        function calculateSI() {
+            var principal = document.getElementById("principal").value;
+            var rate = document.getElementById("rate").value;
+            var time = document.getElementById("time").value;
+
+         
+            var simpleInterest = +(principal * rate * time) / 100;
+
+            document.getElementById("interest").textContent = "Simple Interest: " + simpleInterest;
+        }
+    </script>
+</body>
+</html>

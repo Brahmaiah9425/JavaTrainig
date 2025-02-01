@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product with Image "Dior J'adore"</title>
+</head>
+<body>
+    <h2>Product with Image "Dior J'adore"</h2>
+    <div id="product-image">Product image will be displayed here.</div>
+
+    <script>
+        const fetchProductImage = async () => {
+            try {
+                const response = await fetch("https://dummyjson.com/products");
+                const data = await response.json();
+
+                let diorProduct = null;
+                for (const product of data.products) {
+                    if (product.title === "Dior J'adore") {
+                        diorProduct = product;
+                        break;
+                    }
+                }
+
+                const productImageDiv = document.getElementById("product-image");
+                if (diorProduct) {
+                    const imageUrl = diorProduct.images[0]; 
+
+                    const imageElement = document.createElement('img');
+                    imageElement.src = imageUrl;
+                    imageElement.alt = `${diorProduct.title} Image`;
+                    imageElement.style.maxWidth = '300px';
+                    imageElement.style.marginBottom = '10px';
+                    productImageDiv.appendChild(imageElement);
+                } else {
+                    const noProductMessage = document.createElement('p');
+                    noProductMessage.textContent = "No product found with the title 'Dior J'adore'.";
+                    productImageDiv.appendChild(noProductMessage);
+                }
+            } catch (error) {
+                console.error("Error occurred:", error);
+                const errorMessage = document.createElement('p');
+                errorMessage.textContent = "Failed to fetch data.";
+                document.getElementById("product-image").appendChild(errorMessage);
+            }
+        };
+
+        fetchProductImage();
+    </script>
+</body>
+</html>

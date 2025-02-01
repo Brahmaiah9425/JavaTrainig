@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterating Arrays</title>
+</head>
+<body>
+    <button onclick="f1()">For Demo</button>
+    <script>
+        var names = ["Brahmaiah", "Ravi", "Suresh"];
+        var textIn = "";
+        var textOf = "";
+
+        function f1() {
+           
+            for (let x in names) {
+                textIn += x + " "; 
+
+           
+            for (let x of names) {
+                textOf += x + " "; 
+            }
+
+            console.log("Indexes using for...in:", textIn.trim());
+            console.log("Values using for...of:", textOf.trim());
+        }
+    </script>
+</body>
+</html>

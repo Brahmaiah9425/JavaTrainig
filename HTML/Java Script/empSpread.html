@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Operations</title>
+  <script>
+    const employees = [
+      { name: "Brahmaiah", post: "Developer", salary: 50000 },
+      { name: "Mahesh", post: "Manager", salary: 75000 },
+      { name: "Hari", post: "Tester", salary: 40000 }
+    ];
+
+    const empAndhra = [
+      { name: "Mahesh", post: "Developer", salary: 60000 },
+      { name: "Hari", post: "Analyst", salary: 55000 }
+    ];
+
+    const empHyd = [
+      { name: "Brahmaiah", post: "Developer", salary: 70000 },
+      { name: "Ajith", post: "HR", salary: 65000 }
+    ];
+
+    function incrementSalaryForDevelopers() {
+      employees.forEach(employee => {
+        if (employee.post === "Developer") {
+          employee.salary += 10000; 
+          console.log(`Salary incremented for ${employee.name}. New salary: ${employee.salary}`);
+        }
+      });
+      alert("Salary incremented for Developers. Check the console for details.");
+    }
+
+    function findMaxSalary() {
+      let maxSalary = employees[0].salary;
+      let maxEmployee = employees[0];
+      for (let emp of employees) {
+        if (emp.salary > maxSalary) {
+          maxSalary = emp.salary;
+          maxEmployee = emp;
+        }
+      }
+      console.log("Employee with Maximum Salary:", maxEmployee);
+      alert(`Max Salary: ${maxEmployee.name}, ${maxEmployee.salary}`);
+    }
+
+    function mergeEmployees() {
+      const mergedEmployees = [...empAndhra, ...empHyd];
+      console.log("Merged Employees:", mergedEmployees);
+      alert("Employees from Andhra and Hyderabad merged. Check the console for details.");
+    }
+  </script>
+</head>
+<body>
+  <h1>Employee Operations</h1>
+  <button onclick="incrementSalaryForDevelopers()">Increment Salary for Developers</button>
+  <button onclick="findMaxSalary()">Find Employee with Maximum Salary</button>
+  <button onclick="mergeEmployees()">Merge Employees from Andhra and Hyderabad</button>
+</body>
+</html>

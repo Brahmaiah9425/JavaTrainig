@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <!-- Search Bar -->
+  <input [(ngModel)]="searchQuery" type="text" class="form-control mb-3" placeholder="Search for product" />
+  <button class="btn btn-primary" (click)="searchProduct()">Search</button>
+
+  <!-- Display Products in Cards -->
+  <div *ngFor="let product of products" class="card mt-4" style="width: 18rem;">
+    <img [src]="product.image" class="card-img-top" alt="{{ product.title }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+      <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+      <button class="btn btn-success">Add to Cart</button>
+    </div>
+  </div>
+</div>

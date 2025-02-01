@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Concepts</title>
+    <style>
+        #b1 {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p id="p1"></p>
+    <button id="b1">Login please</button>
+
+    <script>
+        function outer() {
+            let b = 10; 
+            function inner() {
+                console.log("Value of b:", b);
+            }
+            return inner(); 
+        }
+        outer(); 
+
+        console.log("Start");
+
+        setTimeout(() => {
+            console.log("Executed after 10 seconds");
+            const button = document.getElementById("b1");
+            button.style.display = 'block'; 
+
+            clearInterval(intervalId);
+        }, 10000);
+ 
+
+        console.log("End"); 
+
+        let count = 1; 
+        const intervalId = setInterval(() => {
+            console.log("Count:", count); 
+            count++;
+        }, 1000); 
+
+        let myPromise = new Promise((resolve, reject) => {
+            let x = 1;
+            if (x === 0) {
+                resolve("Success! Everything is OK.");
+            } else {
+                reject("Error! Something went wrong.");
+            }
+        });
+
+        myPromise.then(
+            (value) => handleResult(value),  
+            (error) => handleResult(error)  
+        );
+
+        function handleResult(msg) {
+            document.getElementById("p1").innerText = msg; 
+            console.log(msg); 
+        }
+    </script>
+</body>
+</html>

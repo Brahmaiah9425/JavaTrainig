@@ -1,0 +1,12 @@
+ng -version
+npm install -g @angular/cli@16
+ng version
+ng new angular-demo
+cd angular-demo
+ng config schematics.@schematics/angular:component.standalone true
+ng generate component welcome
+ng serve
+history
+/history
+cls
+doskey /history > history.txt

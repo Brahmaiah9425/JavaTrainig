@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Operations</title>
+</head>
+<body>
+    <h1>Array Operations Demo</h1>
+
+    <script>
+        let num = [6, 5, 4, 2, 1];
+
+        console.log("Original array: " + num);
+
+        console.log("Length of array: " + num.length);
+
+        console.log("Sort : " + num.sort());
+
+        console.log("Reverse: " + num.reverse());
+
+        console.log("toString: " + num.toString());
+
+        num.push(3);
+        console.log("After push 3: " + num);
+
+        console.log("Popped element: " + num.pop());
+        console.log("After pop the last element: " + num);
+
+        num.unshift(15);
+        console.log("After unshift 15: " + num);
+
+       
+        console.log("Shifted element: " + num.shift());
+        console.log("After shift: " + num);
+
+       
+        num[0] = 18;
+        console.log("After replacing element at index 0 with 18: " + num);
+
+       
+        num.push(100);
+        console.log("Before sorting: " + num);
+        num.sort(function(a, b) { return b - a; });
+
+       
+        console.log("After lexicographical sorting: " + num.sort());
+
+        
+        console.log("After numerical sorting: " + num.sort(function(a, b) {
+            return a - b;
+        }));
+    </script>
+</body>
+</html>

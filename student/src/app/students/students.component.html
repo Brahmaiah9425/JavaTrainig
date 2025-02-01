@@ -1,0 +1,19 @@
+<h2>Student Information</h2>
+<input
+  type="text"
+  placeholder="Search by name"
+  [(ngModel)]="searchText"
+  (input)="searchStudents()"
+/>
+<table>
+  <tr>
+    <th>Student Name</th>
+    <th>Subject Name</th>
+    <th>Marks</th>
+  </tr>
+  <tr *ngFor="let student of filteredStudents">
+    <td>{{ student.name }}</td>
+    <td>{{ student.subject }}</td>
+    <td>{{ student.marks }}</td>
+  </tr>
+</table>

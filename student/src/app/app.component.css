@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+  }
+  
+  .main-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .sidebar {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .content {
+    flex: 2;
+    padding: 20px;
+  }
+  
+  footer {
+    margin-top: auto;
+  }
+  

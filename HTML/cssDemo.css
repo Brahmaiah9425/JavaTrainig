@@ -1,0 +1,71 @@
+h1 {
+    color: royalblue;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: darkorange;
+    font-size: 20px;
+}
+
+a:hover {
+    color: green;
+    font-size: 22px;
+}
+
+a:visited {
+    color: purple;
+}
+
+input[type="text"], input[type="password"] {
+    border: 2px solid lightgray;
+    padding: 8px;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #4CAF50;
+    background-color: #f0f8f0;
+}
+
+.p2 {
+    color: darkblue;
+    font-size: 16px;
+}
+
+#p3 {
+    color: darkviolet;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+b, strong, i {
+    font-style: italic;
+    font-weight: normal;
+}
+
+.uname:focus {
+    color: darkgreen;
+    background-color: lightyellow;
+}
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #f9f9f9;
+    margin: 20px;
+}
+
+div {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+}

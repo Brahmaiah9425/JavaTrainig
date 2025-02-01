@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterating Objects</title>
+</head>
+<body>
+    <button onclick="f1()">Person</button>
+    <script>
+        var person = { name: "Brahmaiah", age: "22", city: "Andhra" };
+
+        function f1() {
+           
+            console.log("Person Details:");
+            for (let key in person) {
+                console.log(key + ":", person[key]); 
+            }
+
+        }
+    </script>
+</body>
+</html>

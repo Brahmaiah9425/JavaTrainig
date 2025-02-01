@@ -1,0 +1,9 @@
+<h3>Achievements</h3>
+<ul>
+  <li *ngFor="let achievement of achievements">
+    <img [src]="achievement.image" alt="icon" width="20" height="20" />
+    <strong>{{ achievement.title }}</strong><br />
+    <span>{{ achievement.description }}</span><br />
+    <em>{{ achievement.date }}</em><br />
+  </li>
+</ul>
