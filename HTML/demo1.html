@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Document</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        /* Universal Selector for All Elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Heading Styles */
+        h1 {
+            color: royalblue;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 36px;
+        }
+
+        h1:hover {
+            color: red;
+            font-size: 40px;
+            font-family: 'Cambria', 'Georgia', Times, 'Times New Roman', serif;
+        }
+
+        /* Input Fields Styling */
+        input[type="text"], input[type="password"] {
+            border: 2px solid lightgray;
+            padding: 8px;
+            margin: 5px 0;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #4CAF50;
+            background-color: #f0f8f0;
+        }
+
+        /* Link Styling */
+        a {
+            text-decoration: none;
+            color: darkorange;
+            font-size: 20px;
+        }
+
+        a:visited {
+            color: purple;
+        }
+
+        a:hover {
+            color: green;
+            font-size: 22px;
+        }
+
+        a:active {
+            color: #ff00ff;
+        }
+
+        /* Paragraphs Styling */
+        p {
+            color: green;
+            font-size: 18px;
+        }
+
+        .p2 {
+            color: darkblue;
+            font-size: 16px;
+        }
+
+        #p3 {
+            color: darkviolet;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Text Element Styling */
+        b {
+            font-style: italic;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        i {
+            font-style: italic;
+        }
+
+        /* Div Styling */
+        div {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Focus Effect for Input with class 'uname' */
+        .uname:focus {
+            color: darkgreen;
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+<body>
+    <!-- Input Fields -->
+    Name: <input class="uname" type="text" placeholder="Enter your name">
+    Password: <input type="password" placeholder="Enter password">
+
+    <!-- Heading with hover effect -->
+    <h1>Welcome to the New Page!</h1>
+
+    <!-- Link with hover, visited, and active state -->
+    <a href="https://www.example.com">Visit Example Website</a>
+
+    <!-- Paragraph with inline style -->
+    <p style="color: red; font-size: 18px;">This is an inline-styled paragraph.</p>
+
+    <!-- Paragraph with class-based styling -->
+    <p class="p2">This paragraph uses internal CSS for styling.</p>
+
+    <!-- Paragraph with ID-based styling -->
+    <p id="p3">This paragraph has an ID-based styling applied.</p>
+
+    <!-- A div container holding a paragraph -->
+    <div>
+        <p>Text inside a div element.</p>
+    </div>
+
+    <!-- Text elements with different styles -->
+    <b>This is bold text.</b>
+    <strong>This is strong text.</strong>
+    <i>This is italic text.</i>
+</body>
+</html>

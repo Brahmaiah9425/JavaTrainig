@@ -1,0 +1,52 @@
+<div class="container">
+    <header>
+      <h1>Hello, {{ username }}</h1>
+      <button (click)="showUsername()">Show Username</button>
+      <div *ngIf="displayUsername">
+        <h5>{{ displayUsername }}</h5>
+      </div>
+    </header>
+  
+    <div class="main-content">
+      <div class="sidebar">
+        <h3>Achievements</h3>
+        <button (click)="showAchievements()">Show Achievements</button>
+        <div *ngIf="displayAchievements.length > 0">
+          <ul>
+            <li *ngFor="let achievement of displayAchievements">
+              <strong>{{ achievement.title }}</strong><br />
+              <span>{{ achievement.description }}</span><br />
+              <em>{{ achievement.date }}</em><br />
+            </li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="content">
+        <h2>Student Information</h2>
+        <button (click)="showStudents()">Show Student Data</button>
+        <div *ngIf="displayStudents.length > 0">
+          <table>
+            <tr>
+              <th>Student Name</th>
+              <th>Subject Name</th>
+              <th>Marks</th>
+            </tr>
+            <tr *ngFor="let student of displayStudents">
+              <td>{{ student.name }}</td>
+              <td>{{ student.subject }}</td>
+              <td>{{ student.marks }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  
+    <footer>
+      <button (click)="showEmail()">Show Email</button>
+      <div *ngIf="displayEmail">
+        <p>Email: {{ displayEmail }}</p>
+      </div>
+    </footer>
+  </div>
+  

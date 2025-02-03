@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .stopwatch-container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: wheat;
+            width: 250px;
+        }
+
+        #hr, #min, #sec {
+            font-size: 2rem;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: green;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: green;
+        }
+
+        button:active {
+            background-color: green;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="stopwatch-container">
+        <span id="hr">00 hrs :</span>
+        <span id="min">00 mins :</span>
+        <span id="sec">00 secs</span><br>
+
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Stop/Continue</button>
+        <button onclick="reset()">Reset</button>
+    </div>
+
+    <script>
+        var h = 0, m = 0, s = 0;
+        var secInterval;
+        var running = false;
+
+         function updateDisplay() {
+            document.getElementById("hr").innerHTML = (h < 10 ? '0' : '') + h + " hrs :";
+            document.getElementById("min").innerHTML = (m < 10 ? '0' : '') + m + " mins :";
+            document.getElementById("sec").innerHTML = (s < 10 ? '0' : '') + s + " secs";
+        }
+
+        function start() {
+            if (!running) {
+                secInterval = setInterval(function() {
+                    s++;
+                    if (s == 60) {
+                        m++;
+                        s = 0;
+                    }
+                    if (m == 60) {
+                        h++;
+                        m = 0;
+                    }
+                    updateDisplay();
+                }, 1000);
+                running = true;
+            }
+        }
+
+        function stop() {
+            if (running) {
+                clearInterval(secInterval);
+                running = false;
+            } else {
+                start();
+            }
+        }
+
+        function reset() {
+            clearInterval(secInterval);
+            running = false;
+            h = 0;
+            m = 0;
+            s = 0;
+            updateDisplay();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<p>form-demo works!</p>
+
+<form #loginForm="ngForm" (ngSubmit)="userLogin()" (contextmenu)="onRightClick($event)">
+  
+  <div>
+    <label for="emailid">EmailId:</label>
+    <input 
+      id="emailid" 
+      type="text" 
+      required 
+      [(ngModel)]="emailid" 
+      name="emailid" 
+      #email="ngModel" 
+      placeholder="Enter your email id" 
+      email>
+    <span *ngIf="email.invalid && email.touched" style="color:red">
+      Please enter a valid email id.
+    </span>
+  </div>
+  
+  <div>
+    <label for="password">Password:</label>
+    <input 
+      id="password" 
+      type="password" 
+      required 
+      [(ngModel)]="pass" 
+      name="password" 
+      #password="ngModel" 
+      placeholder="Enter your password" 
+      minlength="5">
+    <span *ngIf="password.invalid && password.touched" style="color:red">
+      Password must be at least 5 characters.
+    </span>
+  </div>
+  
+  <div>
+    <button [disabled]="loginForm.invalid">Login</button>
+  </div>
+
+</form>
+
+<!--<div *ngIf="showMenu" [style.left.px]="menuX" [style.top.px]="menuY" class="context-menu">
+  <ul>
+    <li (click)="onMenuClick('Option 1')">Option 1</li>
+    <li (click)="onMenuClick('Option 2')">Option 2</li>
+    <li (click)="onMenuClick('Option 3')">Option 3</li>
+  </ul>
+</div>-->

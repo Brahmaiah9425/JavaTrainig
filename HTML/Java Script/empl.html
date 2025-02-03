@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Operations</title>
+  <script>
+    const employees = [
+      { name: "Brahmaiah", post: "Developer", salary: 50000 },
+      { name: "Mahesh", post: "Manager", salary: 75000 },
+      { name: "Hari", post: "Tester", salary: 40000 }
+    ];
+
+    function incrementSalaryForDevelopers() {
+      const output = document.getElementById("output");
+      output.innerHTML = ""; 
+
+      employees.forEach(employee => {
+        if (employee.post === "Developer") {
+          employee.salary += 10000; 
+          const result = document.createElement("p");
+          result.textContent = `Salary incremented for ${employee.name}. New salary: ${employee.salary}`;
+          output.appendChild(result);
+        }
+      });
+    }
+
+    function findMaxSalary() {
+      const output = document.getElementById("output");
+      output.innerHTML = "";
+
+      let maxSalary = employees[0].salary;
+      let maxEmployee = employees[0];
+      for (let emp of employees) {
+        if (emp.salary > maxSalary) {
+          maxSalary = emp.salary;
+          maxEmployee = emp;
+        }
+      }
+
+      const result = document.createElement("p");
+      result.textContent = `Employee with Maximum Salary: ${maxEmployee.name}, ${maxEmployee.salary}`;
+      output.appendChild(result);
+    }
+
+    function mergeEmployees() {
+      const output = document.getElementById("output");
+      output.innerHTML = ""; 
+
+      const mergedEmployees = employees; 
+      const resultTitle = document.createElement("p");
+      resultTitle.textContent = "Merged Employees:";
+      output.appendChild(resultTitle);
+
+      mergedEmployees.forEach(emp => {
+        const result = document.createElement("p");
+        result.textContent = `${emp.name} - ${emp.post} - ${emp.salary}`;
+        output.appendChild(result);
+      });
+    }
+
+    function addEmployee() {
+      const name = document.getElementById("name").value;
+      const post = document.getElementById("post").value;
+      const salary = parseInt(document.getElementById("salary").value);
+
+      if (name && post && salary) {
+        employees.push({ name, post, salary });
+        const output = document.getElementById("output");
+        output.innerHTML = `<p>New Employee Added: ${name}, ${post}, ${salary}</p>`;
+      } else {
+        alert("Please fill out all fields!");
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Employee Operations</h1>
+
+  <h2>Add New Employee</h2>
+  <label for="name">Name: </label><input type="text" id="name" required><br><br>
+  <label for="post">Post: </label><input type="text" id="post" required><br><br>
+  <label for="salary">Salary: </label><input type="number" id="salary" required><br><br>
+  <button onclick="addEmployee()">Add Employee</button>
+
+  <br><br>
+  <!-- Operations Buttons -->
+  <button onclick="incrementSalaryForDevelopers()">Increment Salary for Developers</button>
+  <button onclick="findMaxSalary()">Find Employee with Maximum Salary</button>
+  <button onclick="mergeEmployees()">Merge Employees</button>
+
+  <!-- Output Section -->
+  <div id="output" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; background: #f9f9f9;">
+    <h2>Results:</h2>
+  </div>
+</body>
+</html>

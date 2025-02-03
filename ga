@@ -1,0 +1,24 @@
+abstract class Payment {
+    abstract void processPayment();
+}
+
+class CreditCardPayment extends Payment {
+    void processPayment() {
+        System.out.println("Processing Credit Card Payment");
+    }
+}
+
+class PayPalPayment extends Payment {
+    void processPayment() {
+        System.out.println("Processing PayPal Payment");
+    }
+}
+
+public class PaymentDemo {
+    public static void main(String[] args) {
+        Payment payment1 = new CreditCardPayment();
+        Payment payment2 = new PayPalPayment();
+        payment1.processPayment();
+        payment2.processPayment();
+    }
+}

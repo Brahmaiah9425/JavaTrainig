@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/submit" method="get">
+       
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter Username here"><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter Password here"><br><br>
+
+        <input type="button" value="Signin">
+        <button type="submit">Login</button>
+        <hr>
+
+      
+        <p>For single option use radio button:</p>
+        <label for="male">Gender:</label><br>
+        <input type="radio" id="male" value="male" name="gender">
+        <label for="male">Male</label><br>
+
+        <input type="radio" id="female" value="female" name="gender">
+        <label for="female">Female</label><br><br>
+
+     
+        <p>For multiple options use checkbox:</p>
+        <label>Hobby:</label><br>
+        <input type="checkbox" value="reading" name="hobby">
+        <label>Reading</label><br>
+
+        <input type="checkbox" value="playing" name="hobby">
+        <label>Playing</label><br>
+
+        <input type="checkbox" value="dancing" name="hobby">
+        <label>Dancing</label><br>
+
+        <input type="checkbox" value="singing" name="hobby">
+        <label>Singing</label><br><br>
+
+       
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+            <option>Select country name</option>
+            <option value="usa">USA</option>
+            <option value="india">India</option>
+            <option value="uk">UK</option>
+        </select><br><br>
+
+    
+        <ul>
+            <li>Java</li>
+            <li>C++</li>
+            <li>SQL</li>
+        </ul>
+
+       
+        <ol>
+            <li>Java</li>
+            <li>C++</li>
+            <li>SQL</li>
+        </ol>
+
+       
+        <label>Menu:</label>
+        <dl>
+            <dt>Coffee</dt>
+            <dd>Hot coffee</dd>
+            <dt>Tea</dt>
+            <dd>Ginger tea</dd>
+        </dl><br>
+
+       
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

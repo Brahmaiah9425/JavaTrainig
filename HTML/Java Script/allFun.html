@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Examples</title>
+</head>
+<body>
+    <script>
+        
+        const person1 = { name: "Brahmaiah" };
+        function greet(msg) {
+            console.log(msg + " " + this.name);
+        }
+        greet.call(person1, "Hello");
+       
+
+        const person2 = { name: "Brahmaiah" };
+        function greet2(msg) {
+            console.log(msg + " " + this.name);
+        }
+        const boundGreet = greet2.bind(person2, "Hello");
+        boundGreet();
+
+        const person3 = { name: "Brahmaiah", city: "Andhra" };
+        function introduction(age, email) {
+            console.log(`Name: ${this.name}, City: ${this.city}, Age: ${age}, Email: ${email}`);
+        }
+        introduction.apply(person3, [22, "abc@gmail.com"]);
+
+        const arr1 = [1, 2, 3];
+        const copyArr = [...arr1];
+        console.log(copyArr); 
+      
+        const arr2 = [4, 5, 6];
+        const mergedArr = [...arr1, ...arr2];
+        console.log(mergedArr); 
+
+        const ob1 = { name: "Laxminarayan", city: "Pune" };
+        const copy1 = { ...ob1 }; 
+        const ob2 = { name: "Brahmaiah", city: "Andhra"};
+        
+        console.log("actual : " + ob1.name); 
+        console.log("copy : " + copy1.name);  
+        const person4 = { name: "Brahmaiah", city: "Andhra" };
+        const copyObj = { ...person4 };
+        console.log(copyObj); 
+
+        const str = "hello";
+        const charArray = [...str];
+        console.log(charArray); 
+    </script>
+</body>
+</html>

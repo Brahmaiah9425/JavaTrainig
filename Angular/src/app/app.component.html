@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Angular Material Form Example</h1>
+
+  <!-- Material Form Field -->
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Enter your name" [(ngModel)]="name">
+  </mat-form-field>
+
+  <!-- Material Button -->
+  <button mat-raised-button (click)="submit()">Submit</button>
+
+  <!-- Display Name -->
+  <div *ngIf="name">
+    <mat-badge [matBadge]="name" matBadgePosition="above after">Name Badge</mat-badge>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product with Comment "Disappointing Product"</title>
+</head>
+<body>
+    <h2>Product with Comment "Disappointing Product"</h2>
+    <div id="disappointing-product">product</div>
+
+    <script>
+        const fetchDisappointingProduct = async () => {
+            try {
+                const response = await fetch("https://dummyjson.com/products");
+                const data = await response.json();
+
+                let disappointingProduct = null;
+                for (const product of data.products) {
+                    for (const review of product.reviews) {
+                        if (review.comment.toLowerCase().includes("disappointing product")) {
+                            disappointingProduct = product;
+                            break;
+                        }
+                    }
+                    if (disappointingProduct) break;
+                }
+
+                const disappointingDiv = document.getElementById("disappointing-product");
+                if (disappointingProduct) {
+                    disappointingDiv.textContent = `Title: ${disappointingProduct.title}\nPrice: $${disappointingProduct.price}\nDescription: ${disappointingProduct.description}`;
+                } else {
+                    disappointingDiv.textContent = "No product found with the comment 'Disappointing product'.";
+                }
+            } catch (error) {
+                console.error("Error occurred:", error);
+                document.getElementById("disappointing-product").textContent = "Failed to fetch data.";
+            }
+        };
+
+        fetchDisappointingProduct();
+    </script>
+</body>
+</html>

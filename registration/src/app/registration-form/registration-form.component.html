@@ -1,0 +1,82 @@
+<h1>User Registration Form</h1>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" formControlName="username">
+    <div *ngIf="f.username.invalid && f.username.touched" style="color: red;">
+      <span *ngIf="f.username.errors?.['required']">Username is required.</span>
+      <span *ngIf="f.username.errors?.['minlength']">Username must be at least 4 characters long.</span>
+      <span *ngIf="f.username.errors?.['maxlength']">Username cannot be more than 15 characters long.</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email">
+    <div *ngIf="f.email.invalid && f.email.touched" style="color: red;">
+      <span *ngIf="f.email.errors?.['required']">Email is required.</span>
+      <span *ngIf="f.email.errors?.['email']">Enter a valid email address.</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password">
+    <div *ngIf="f.password.invalid && f.password.touched" style="color: red;">
+      <span *ngIf="f.password.errors?.['required']">Password is required.</span>
+      <span *ngIf="f.password.errors?.['minlength']">Password must be at least 6 characters long.</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" formControlName="confirmPassword">
+    <div *ngIf="f.confirmPassword.invalid && f.confirmPassword.touched" style="color: red;">
+      <span *ngIf="f.confirmPassword.errors?.['required']">Confirm Password is required.</span>
+      <span *ngIf="f.confirmPassword.errors?.['passwordMismatch']">Passwords do not match.</span>
+    </div>
+  </div>
+
+ 
+  <div>
+    <label for="address">Address:</label>
+    <input type="text" id="address" formControlName="address">
+    <div *ngIf="f.address.invalid && f.address.touched" style="color: red;">
+      <span *ngIf="f.address.errors?.['required']">Address is required.</span>
+      <span *ngIf="f.address.errors?.['minlength']">Address must be at least 10 characters long.</span>
+    </div>
+  </div>
+
+ 
+  <div>
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" formControlName="phone">
+    <div *ngIf="f.phone.invalid && f.phone.touched" style="color: red;">
+      <span *ngIf="f.phone.errors?.['required']">Phone number is required.</span>
+      <span *ngIf="f.phone.errors?.['pattern']">Enter a valid 10-digit phone number.</span>
+    </div>
+  </div>
+
+ 
+  <div>
+    <label for="age">Age:</label>
+    <input type="number" id="age" formControlName="age">
+    <div *ngIf="f.age.invalid && f.age.touched" style="color: red;">
+      <span *ngIf="f.age.errors?.['required']">Age is required.</span>
+      <span *ngIf="f.age.errors?.['min']">You must be at least 18 years old.</span>
+      <span *ngIf="f.age.errors?.['max']">Age cannot be more than 100 years old.</span>
+    </div>
+  </div>
+
+
+  <div>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" formControlName="dob">
+    <div *ngIf="f.dob.invalid && f.dob.touched" style="color: red;">
+      <small>Date of Birth is required.</small>
+    </div>
+  </div>
+
+  
+  <button type="submit" [disabled]="registrationForm.invalid">Submit</button>
+</form>
