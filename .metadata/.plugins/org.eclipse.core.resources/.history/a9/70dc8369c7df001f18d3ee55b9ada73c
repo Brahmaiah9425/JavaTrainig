@@ -1,0 +1,21 @@
+package org;
+
+import org.config.AppConfig;
+import org.service.AccountServiceImpl;
+import org.service.SavingAccount;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class BankApp {
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        
+        // Injecting Saving Account
+        AccountServiceImpl savingService = new AccountServiceImpl(context.getBean(SavingAccount.class));
+        savingService.showAccountType();
+
+        // Injecting Current Account
+        AccountServiceImpl currentService = new AccountServiceImpl(context.getBean("currentAccount", org.service.AccountService.class));
+        currentService.showAccountType();
+    }
+}

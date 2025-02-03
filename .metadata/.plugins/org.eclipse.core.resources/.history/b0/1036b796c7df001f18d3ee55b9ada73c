@@ -1,0 +1,16 @@
+package org;
+
+import org.service.AccountServiceImpl;
+import org.config.AppConfig;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class BankApp {
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        // Injecting Saving Account
+        AccountServiceImpl savingService = context.getBean(AccountServiceImpl.class);
+        savingService.showAccountType();
+    }
+}

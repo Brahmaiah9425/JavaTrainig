@@ -1,0 +1,27 @@
+package com.example.bank;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class BankService {
+    public static void main(String[] args) {
+        // Create Spring context using AppConfig class
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        // Retrieve the beans
+        AccountService savingAccount = context.getBean(SavingAccount.class);
+        AccountService currentAccount = context.getBean(CurrentAccount.class);
+
+        // Display details for Saving Account
+        System.out.println("Saving Account Details:");
+        savingAccount.displayAccountType();
+        savingAccount.accountDetails();
+
+        // Display details for Current Account
+        System.out.println("\nCurrent Account Details:");
+        currentAccount.displayAccountType();
+        currentAccount.accountDetails();
+
+        // Close the context
+        context.close();
+    }
+}

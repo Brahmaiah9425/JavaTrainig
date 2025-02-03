@@ -1,0 +1,5 @@
+package com.example;
+
+public interface MsgService {
+    void sendMessage(String message);
+}

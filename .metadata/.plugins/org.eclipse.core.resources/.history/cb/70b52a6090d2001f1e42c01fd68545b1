@@ -1,0 +1,46 @@
+package org;
+import java.sql.*;
+
+public class CRUDOperations {
+    public static void main(String[] args) {
+        
+        String url = "jdbc:mysql://localhost:3306/mydatabase";
+        String user = "root";
+        String password = "root";
+
+        
+        try (Connection con = DriverManager.getConnection(url, user, password)) {
+            System.out.println("Connected to the database!");
+
+          
+            String insertQuery = "INSERT INTO employees (id, name, salary) VALUES (?, ?, ?)";
+            try (PreparedStatement insertStmt = con.prepareStatement(insertQuery)) {
+                insertStmt.setInt(1, 1);
+                insertStmt.setString(2, "Brahmaiah");
+                insertStmt.setDouble(3, 55000.00);
+                int insertRows = insertStmt.executeUpdate();
+                System.out.println(insertRows + " record(s) inserted.");
+            }
+
+          
+            String updateQuery = "UPDATE employees SET salary = ? WHERE id = ?";
+            try (PreparedStatement updateStmt = con.prepareStatement(updateQuery)) {
+                updateStmt.setDouble(1, 60000.00); 
+                updateStmt.setInt(2, 1); 
+                int updateRows = updateStmt.executeUpdate();
+                System.out.println(updateRows + " record(s) updated.");
+            }
+
+          
+            String deleteQuery = "DELETE FROM employees WHERE id = ?";
+            try (PreparedStatement deleteStmt = con.prepareStatement(deleteQuery)) {
+                deleteStmt.setInt(1, 1); 
+                int deleteRows = deleteStmt.executeUpdate();
+                System.out.println(deleteRows + " record(s) deleted.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}

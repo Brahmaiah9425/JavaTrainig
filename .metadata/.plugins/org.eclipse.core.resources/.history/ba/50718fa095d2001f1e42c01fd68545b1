@@ -1,0 +1,92 @@
+package org;
+
+import java.sql.*;
+
+public class CRUDOperations {
+
+    // JDBC URL, username, and password of MySQL server
+    private static final String URL = "jdbc:mysql://localhost:3306/mydatabase";
+    private static final String USER = "root";
+    private static final String PASSWORD = "root";
+
+    public static void main(String[] args) {
+        // Establish connection
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            if (connection != null) {
+                System.out.println("Connected to the database!");
+
+                // Example: CREATE operation
+                createRecord(connection);
+
+                // Example: READ operation
+                readRecords(connection);
+
+                // Example: UPDATE operation
+                updateRecord(connection);
+
+                // Example: DELETE operation
+                deleteRecord(connection);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // CREATE record in database
+    private static void createRecord(Connection connection) {
+        String query = "INSERT INTO users (name, email) VALUES (?, ?)";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, "John Doe");
+            preparedStatement.setString(2, "johndoe@example.com");
+            int rowsAffected = preparedStatement.executeUpdate();
+            System.out.println("Rows affected: " + rowsAffected);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // READ records from database
+    private static void readRecords(Connection connection) {
+        String query = "SELECT * FROM users";
+
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+
+            while (resultSet.next()) {
+                System.out.println("ID: " + resultSet.getInt("id"));
+                System.out.println("Name: " + resultSet.getString("name"));
+                System.out.println("Email: " + resultSet.getString("email"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // UPDATE record in database
+    private static void updateRecord(Connection connection) {
+        String query = "UPDATE users SET email = ? WHERE name = ?";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, "updatedemail@example.com");
+            preparedStatement.setString(2, "John Doe");
+            int rowsAffected = preparedStatement.executeUpdate();
+            System.out.println("Rows affected: " + rowsAffected);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // DELETE record from database
+    private static void deleteRecord(Connection connection) {
+        String query = "DELETE FROM users WHERE name = ?";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, "John Doe");
+            int rowsAffected = preparedStatement.executeUpdate();
+            System.out.println("Rows affected: " + rowsAffected);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}

@@ -1,0 +1,5 @@
+package org.example.EmployeeDatabase;
+
+public class DatabaseConnection {
+
+}

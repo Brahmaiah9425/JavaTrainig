@@ -1,0 +1,21 @@
+// org/example/MessageService/MessageService.java
+package org.example.MessageService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MessageService {
+
+    private final MsgSender msgSender;
+
+    // @Autowired will automatically inject the appropriate MsgSender (by default, it will inject Sms due to @Primary)
+    @Autowired
+    public MessageService(MsgSender msgSender) {
+        this.msgSender = msgSender;
+    }
+
+    public void processMessage(String message) {
+        msgSender.sendMsg(message);
+    }
+}

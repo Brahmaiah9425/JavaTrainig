@@ -1,0 +1,18 @@
+package org.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AccountServiceImpl {
+    private final AccountService accountService;
+
+    @Autowired
+    public AccountServiceImpl(AccountService accountService) {
+        this.accountService = accountService;
+    }
+
+    public void showAccountType() {
+        accountService.accountType();
+    }
+}
